@@ -17,12 +17,13 @@ Some of the features the project aims to demonstrate are.
 * Pycharm - IDE used to edit python code. [www.jetbrains.com/pycharm](https://www.jetbrains.com/pycharm/)
 * Vim - command line text editor. [www.vim.org](https://www.vim.org)
 * CronTab - linux system to start scripts at set times. [www.crontab.guru](https://crontab.guru)
+* yEd - used for graphing,  opens .graphml files [www.yworks.com/products/yed](https://www.yworks.com/products/yed)
 
 ### Technologies
 * python - an interpreted high-level programming language for general-purpose programming. [www.python.org](www.python.org)
 * flask - micro web framework written in Python. [www.flask.pocoo.org](http://flask.pocoo.org)
 * telegram - a instant massaging service that allows user to create bots. [www.telegram.org](https://telegram.org)
-* wia - enables the Internet of Things to communicate with one another in a simple, easy way. [www.wia.io](https://www.wia.io)
+* MQTT broker - for this the ecilpse mosquitto project is used. [www.mosquitto.org](https://mosquitto.org)
 
 ### Equipment
 * Raspberry Pi - A small single board computer [www.raspberrypi.org](https://www.raspberrypi.org)
