@@ -7,7 +7,7 @@ from sensePi.push_button import PushButton
 
 class SenseController(Controller):
     def __init__(self, id_tag):
-        Controller.__init__(id_tag)
+        Controller.__init__(self, id_tag=id_tag)
 
         self.sense = SenseHat()
         self.setup()
@@ -20,13 +20,13 @@ class SenseController(Controller):
         self.configure_switch('B1', ['L1'])
 
     def run(self):
-        while True:
-            for switch in self.switches.keys():
-                self.switches.get(switch).run()
-                self.switches.get(switch).action()
+        Controller.run(self)
+        for switch in self.switches.keys():
+            self.switches.get(switch).run()
+            self.switches.get(switch).action()
 
 
 if __name__ == "__main__":
     sensePi = SenseController('sensePi')
 
-    sensePi.run()
+    sensePi.loop()

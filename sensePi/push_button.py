@@ -7,12 +7,12 @@ class PushButton(Switch):
     def __init__(self, id_tag, sense):
         Switch.__init__(self, id_tag)
         self.sense = sense
-        self.red = (255, 0, 0)
-        self.blue = (0, 0, 255)
+
+        # For set up checking
         self.green = (0, 255, 0)
-        self.start = False
         self.sense.clear(self.green)
         time.sleep(1)
+        self.sense.clear()
 
     def run(self):
         self.sense.stick.direction_middle = self.change_color
@@ -24,8 +24,3 @@ class PushButton(Switch):
         elif event.action == 'pressed' and self.start:
             self.start = False
 
-    def action(self):
-        if self.start:
-            self.on()
-        else:
-            self.off()

@@ -11,8 +11,10 @@ class LightGrid(Light):
         if not self.active:
             self.sense.clear(self.red)
             self.active = True
+            self.action()
 
     def off(self):
         if self.active:
             self.sense.clear()
             self.active = False
+            self.action()
