@@ -44,7 +44,7 @@ class Broker:
     def subscribe(self):
         self.mqttc.subscribe(self.base_topic + "/#", 0)
 
-    def start(self):
+    def run(self):
         self.mqttc.loop_start()
 
     def publish(self, topic, message):
@@ -54,5 +54,5 @@ class Broker:
 
 if __name__ == "__main__":
     b = Broker()
-    b.start()
+    b.run()
     b.subscribe()

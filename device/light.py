@@ -4,7 +4,7 @@ from device.broker import Broker
 class Light(Broker):
     def __init__(self, id_tag):
         Broker.__init__(self)
-        self.start()
+        self.run()
         self.subscribe()
         self.id = id_tag
         self.active = False
@@ -44,7 +44,7 @@ class Light(Broker):
 
     def setup_network_devices(self):
         if self.id not in self.payload.keys():
-            self.payload.setdefault(self.id, {"status": self.is_on(), "action": None})
+            self.payload.setdefault(self.id, {"status": self.is_on(), "action": None, "name": self.id})
             self.publish(self.flag, self.payload)
             print("Update status")
 
