@@ -15,12 +15,11 @@ class SenseController(Controller):
     def setup(self):
         self.add_switch(PushButton('B1', self.sense))
 
-        self.add_light(LightGrid('L1', self.sense))
+        self.add_light(LightGrid('Sense Grid', self.sense))
 
-        self.configure_switch('B1', ['L1'])
+        self.configure_switch('B1', ['Sense Grid'])
 
     def run(self):
-        Controller.run(self)
         for switch in self.switches.keys():
             self.switches.get(switch).run()
             self.switches.get(switch).action()

@@ -8,12 +8,14 @@ class LightGrid(Light):
         self.red = (255, 0, 0)
 
     def on(self):
+        self.reset_action()
         if not self.active:
             self.sense.clear(self.red)
             self.active = True
             self.action()
 
     def off(self):
+        self.reset_action()
         if self.active:
             self.sense.clear()
             self.active = False

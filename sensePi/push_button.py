@@ -13,14 +13,16 @@ class PushButton(Switch):
         self.sense.clear(self.green)
         time.sleep(1)
         self.sense.clear()
+        self.active = False
 
     def run(self):
         self.sense.stick.direction_middle = self.change_color
 
     def change_color(self, event):
         print(event)
-        if event.action == 'pressed' and not self.start:
+        if event.action == 'pressed' and not self.active:
             self.start = True
-        elif event.action == 'pressed' and self.start:
+            self.active = True
+        elif event.action == 'pressed' and self.active:
             self.start = False
-
+            self.active = False

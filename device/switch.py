@@ -3,7 +3,7 @@ class Switch:
     def __init__(self, id_tag):
         self.id = id_tag
         self.lights = []
-        self.start = False
+        self.start = None
 
     def on(self):
         for light in self.lights:
@@ -22,8 +22,12 @@ class Switch:
     def action(self):
         if self.start:
             self.on()
-        else:
+            self.start = None
+        elif self.start is False:
             self.off()
+            self.start = None
+        else:
+            pass
 
     def run(self):
         print("run like the wind")
