@@ -1,0 +1,14 @@
+<div>
+
+  {% for light in lights %}
+
+  <h1> {{light[0]}} is
+    {%if light[1]%}
+      On <i class="huge green lightbulb icon"></i>
+    {%else%}
+      Off <i class="huge gray lightbulb icon"></i>
+    {% endif %}
+  </h1>
+  {% endfor %}
+
+</div>
