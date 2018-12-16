@@ -33,14 +33,20 @@ class Light(Broker):
         Broker.on_message(self, client, obj, msg)
 
         if self.topic == self.status_flag:
-            self.action()
+            if self.id not in self.payload.keys():
+                self.action()
 
         if self.topic == self.action_flag:
-            self.action()
             message = self.payload.get(self.id)
 
             if message['action'] is not None:
                 self.act_on_light(message['action'])
+
+        if self.topic == self.remote_action_flag:
+            action = self.remote_actions.get(self.id)
+
+            if action['action'] is not None:
+                self.act_on_light(action['action'])
 
     def action(self):
         print('I did stuff, ' + self.__repr__())

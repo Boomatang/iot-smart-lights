@@ -17,6 +17,10 @@ class Broker:
         self.setup_mqtt()
         self.payload = {}
         self.topic = None
+        self.remote_action_flag = 'remote action'
+        self.remote_actions = {}
+        self.call = 0
+
 
     # Define event callbacks
     def on_connect(self, client, userdata, flags, rc):
@@ -26,8 +30,12 @@ class Broker:
         print("Message ID: " + str(mid))
 
     def on_message(self, client, obj, msg):
-        self.payload = json.loads(msg.payload)
         self.topic = msg.topic[len(self.base_topic)+1:]
+
+        if self.topic == self.remote_action_flag:
+            self.remote_actions = json.loads(msg.payload)
+        else:
+            self.payload = json.loads(msg.payload)
 
     def on_subscribe(self, client, obj, mid, granted_qos):
         print("Subscribed, QOS granted: " + str(granted_qos))
@@ -48,6 +56,7 @@ class Broker:
         self.mqttc.loop_start()
 
     def publish(self, topic, message):
+        self.call += 1
         json_massage = json.dumps(message)
         self.mqttc.publish(self.base_topic + "/" + topic, json_massage)
 

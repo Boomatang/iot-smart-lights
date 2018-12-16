@@ -1,3 +1,5 @@
+from device.remote_light import RemoteLight
+
 
 class Controller:
     def __init__(self, id_tag):
@@ -15,6 +17,11 @@ class Controller:
 
     def add_light(self, light):
         self.lights[light.id] = light
+
+    def add_remote_light_by_id(self, id):
+        remote_light = RemoteLight(id)
+
+        self.lights[remote_light.id] = remote_light
 
     def setup(self):
         print('No set up done')
