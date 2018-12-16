@@ -25,7 +25,6 @@ class RemoteLight(Broker):
 
         print("sent update")
         self.publish(self.remote_action_flag, self.state)
-        self.act = False
 
     def __repr__(self):
         return "<Remote Light ID : " + self.id + ">"

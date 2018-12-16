@@ -4,9 +4,14 @@
 
   <h1> {{light[0]}} is
     {%if light[1]%}
-      On <i class="huge green lightbulb icon"></i>
+      On
+    <a href="{{url_for('main.act_on_lights', id_tag=light[2], state='off')}}"><i
+        class="huge green lightbulb icon"></i></a>
     {%else%}
-      Off <i class="huge gray lightbulb icon"></i>
+      Off
+      <a href="{{url_for('main.act_on_lights', id_tag=light[2], state='on')}}">
+      <i class="huge gray lightbulb icon"></i>
+      </a>
     {% endif %}
   </h1>
   {% endfor %}
