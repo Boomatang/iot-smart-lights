@@ -1,13 +1,13 @@
 import os
 
-from web import create_app
+from web import create_app, db
 
 app = create_app(os.getenv('APP_CONFIG') or 'default')
 
 
 @app.shell_context_processor
 def make_shell_context():
-    return dict(db='This is db')
+    return dict(db=db)
 
 
 if __name__ == '__main__':

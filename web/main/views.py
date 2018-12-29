@@ -26,6 +26,11 @@ def act_on_lights(id_tag, state):
     return redirect(url_for('.index'))
 
 
+@main.route('/configure', methods=['Post', 'Get'])
+def configure():
+    return "configure your device"
+
+
 def light_status():
 
     lights = []
