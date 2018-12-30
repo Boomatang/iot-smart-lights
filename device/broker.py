@@ -1,4 +1,5 @@
 import json
+from pprint import pprint
 
 import paho.mqtt.client as mqtt
 try:
@@ -65,3 +66,4 @@ if __name__ == "__main__":
     b = Broker()
     b.run()
     b.subscribe()
+    pprint(b.payload)
