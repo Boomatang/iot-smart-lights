@@ -8,9 +8,6 @@ class Controller:
         self.lights = {}
 
         self.system_lights_status = {}
-        # {'l1': [0, 1],  'l1' is off and needs to be turned on
-        #  'l2': [1, None],     'l2' is on, no action required
-        #  'l3': [1, 0]}  'l3' is on and needs to be turned off
 
     def add_switch(self, switch):
         self.switches[switch.id] = switch
@@ -43,11 +40,6 @@ class Controller:
                 self.system_lights_status.setdefault(light, [0, None])
                 self.system_lights_status[light][0] = self.lights[light].is_on()
         added, removed, modified, same = dict_compare(old_status, self.system_lights_status)
-
-        # print("added : " + str(len(added)))
-        # print("removed : " + str(len(removed)))
-        # print("modified : " + str(len(modified)))
-        # print("same : " + str(len(same)))
 
         if len(modified):
             self.publish()
