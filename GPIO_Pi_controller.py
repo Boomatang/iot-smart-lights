@@ -32,10 +32,6 @@ class GpioController(Controller):
         for switch in self.switches.keys():
             self.switches.get(switch).run()
 
-    def loop(self):
-        while True:
-            self.run()
-
 
 if __name__ == "__main__":
     gpio_pi = GpioController("Gpio PI")

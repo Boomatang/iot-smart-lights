@@ -35,3 +35,4 @@ More information about the project can be found at the link below. As the projec
 
 [https://github.com/Boomatang/iot-smart-lights.git](https://github.com/Boomatang/iot-smart-lights.git)
 
+A demo of this project can be seen on youtube at [https://youtu.be/vnT4FIa2MCc](https://youtu.be/vnT4FIa2MCc)
